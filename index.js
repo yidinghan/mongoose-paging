@@ -68,12 +68,12 @@ module.exports = (schema, opts = {}) => {
     }
 
     const dataP = this.find(q);
-    const populate = payload.populate;
-    if (!_.isEmpty(populate)) {
-      if (Array.isArray(populate)) {
-        populate.forEach(pop => dataP.populate(pop));
+    const pop = payload.populate;
+    if (!_.isEmpty(pop)) {
+      if (Array.isArray(pop)) {
+        pop.forEach(p => dataP.populate(p));
       } else {
-        dataP.populate(populate);
+        dataP.populate(pop);
       }
     }
 
