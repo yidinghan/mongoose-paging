@@ -1,0 +1,24 @@
+{
+  "name": "mpaging",
+  "version": "0.0.1",
+  "description": "mongoose plugin for basic paging",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yidinghan/mongoose-paging.git"
+  },
+  "keywords": [
+    "mongoose",
+    "plugin",
+    "paging"
+  ],
+  "author": "yidinghan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yidinghan/mongoose-paging/issues"
+  },
+  "homepage": "https://github.com/yidinghan/mongoose-paging#readme"
+}
