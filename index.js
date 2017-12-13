@@ -55,7 +55,7 @@ module.exports = (schema, opts = {}) => {
   delete optsSchema.properties.maxLimit;
   const plValidate = ajv.compile(optsSchema);
 
-  schema.statics.paging = function paging(query, payload = {}) {
+  schema.statics.paging = function paging(query = {}, payload = {}) {
     if (!plValidate(payload)) {
       const errorMsg = ajv.errorsText(plValidate.errors);
       return Promise.reject(new Error(errorMsg));
