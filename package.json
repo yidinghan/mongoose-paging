@@ -4,6 +4,7 @@
   "description": "mongoose plugin for basic paging",
   "main": "index.js",
   "scripts": {
+    "release": "standard-version",
     "test": "npm test"
   },
   "repository": {
@@ -24,7 +25,8 @@
   "devDependencies": {
     "eslint": "^4.13.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0"
+    "eslint-plugin-import": "^2.8.0",
+    "standard-version": "^4.2.0"
   },
   "dependencies": {
     "ajv": "^5.5.1",
