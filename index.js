@@ -6,6 +6,13 @@ const ajv = new Ajv({
   coerceTypes: 'array',
 });
 
+const parseQ = q => (typeof q === 'string' ? JSON.parse(q) : q);
+const page2skip = (payload) => {
+  if (_.has(payload, 'page')) {
+    payload.skip = payload.limit * payload.page;
+  }
+};
+
 module.exports = (schema, opts = {}) => {
   const optsSchema = {
     type: 'object',
@@ -61,12 +68,7 @@ module.exports = (schema, opts = {}) => {
       return Promise.reject(new Error(errorMsg));
     }
 
-    const q = typeof query === 'string' ? JSON.parse(query) : query;
-
-    if (_.has(payload, 'page')) {
-      payload.skip = payload.limit * payload.page;
-    }
-
+    const q = parseQ(query);
     const dataP = this.find(q);
     const pop = payload.populate;
     if (!_.isEmpty(pop)) {
@@ -77,6 +79,7 @@ module.exports = (schema, opts = {}) => {
       }
     }
 
+    page2skip(payload);
     ['select', 'sort', 'skip', 'lean', 'and', 'or', 'limit'].forEach((key) => {
       if (payload[key] !== undefined) {
         dataP[key](payload[key]);
