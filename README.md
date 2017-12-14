@@ -1,5 +1,13 @@
 # mongoose-paging
 
+[![Travis](https://img.shields.io/travis/yidinghan/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
+[![npm](https://img.shields.io/npm/l/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
+[![npm](https://img.shields.io/npm/v/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
+[![npm](https://img.shields.io/npm/dm/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
+[![David](https://img.shields.io/david/yidinghan/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
+[![David](https://img.shields.io/david/dev/yidinghan/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
+[![node](https://img.shields.io/node/v/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
+
 mongoose plugin for basic paging
 
 # Getting Start
