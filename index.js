@@ -12,6 +12,41 @@ const page2skip = (payload) => {
     payload.skip = payload.limit * payload.page;
   }
 };
+const getSparseResult = ({
+  dataP, q, payload, model,
+}) => {
+  const newLimit = payload.limit + 1;
+  return dataP.limit(newLimit).then((data) => {
+    if (data.length <= newLimit) {
+      return {
+        data,
+        count: data.length,
+      };
+    }
+
+    return model.count(q).then(count => ({
+      data,
+      count,
+    }));
+  });
+};
+const getResult = ({
+  dataP, q, payload, model,
+}) => {
+  if (payload.sparse && !payload.skip) {
+    return Promise.all([dataP.exec(), model.count(q)]).then(([data, count]) => ({
+      data,
+      count,
+    }));
+  }
+
+  return getSparseResult({
+    dataP,
+    q,
+    payload,
+    model,
+  });
+};
 
 module.exports = (schema, opts = {}) => {
   const optsSchema = {
@@ -87,9 +122,6 @@ module.exports = (schema, opts = {}) => {
       }
     });
 
-    return Promise.all([dataP.exec(), this.count(q)]).then(([data, count]) => ({
-      data,
-      count,
-    }));
+    return getResult.call(this, dataP, q, payload);
   };
 };
