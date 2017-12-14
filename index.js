@@ -17,6 +17,7 @@ module.exports = (schema, opts = {}) => {
   const optsSchema = {
     type: 'object',
     properties: {
+      sparse: { type: 'boolean', default: false },
       lean: { type: 'boolean', default: true },
       page: { type: 'number' },
       skip: { type: 'number', default: 0 },
