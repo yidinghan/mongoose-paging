@@ -122,6 +122,11 @@ module.exports = (schema, opts = {}) => {
       }
     });
 
-    return getResult.call(this, dataP, q, payload);
+    return getResult({
+      dataP,
+      q,
+      payload,
+      model: this,
+    });
   };
 };
