@@ -17,7 +17,7 @@ const getSparseResult = ({
 }) => {
   const newLimit = payload.limit + 1;
   return dataP.limit(newLimit).then((data) => {
-    if (data.length <= newLimit) {
+    if (data.length < newLimit) {
       return {
         data,
         count: data.length,
