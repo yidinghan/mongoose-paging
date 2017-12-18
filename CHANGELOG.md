@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/yidinghan/mongoose-paging/compare/v0.3.1...v0.3.2) (2017-12-18)
+
+
+### Bug Fixes
+
+* extra `=` ([66a2719](https://github.com/yidinghan/mongoose-paging/commit/66a2719))
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/yidinghan/mongoose-paging/compare/v0.3.0...v0.3.1) (2017-12-15)
 
