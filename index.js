@@ -12,10 +12,9 @@ const page2skip = (payload) => {
     payload.skip = payload.limit * payload.page;
   }
 };
-const getSparseResult = ({
-  dataP, q, payload, model,
-}) => {
-  const newLimit = payload.limit + 1;
+const getSparseResult = (options) => {
+  const { payload: { limit }, dataP } = options;
+  const newLimit = limit + 1;
   return dataP.limit(newLimit).then((data) => {
     if (data.length < newLimit) {
       return {
@@ -24,6 +23,7 @@ const getSparseResult = ({
       };
     }
 
+    const { model, q } = options;
     return model.count(q).then(count => ({
       data,
       count,
