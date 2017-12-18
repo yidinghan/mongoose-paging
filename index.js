@@ -30,22 +30,17 @@ const getSparseResult = ({
     }));
   });
 };
-const getResult = ({
-  dataP, q, payload, model,
-}) => {
-  if (payload.sparse && !payload.skip) {
-    return Promise.all([dataP.exec(), model.count(q)]).then(([data, count]) => ({
-      data,
-      count,
-    }));
+const getResult = (options) => {
+  const { payload: { sparse, skip } } = options;
+  if (sparse && !skip) {
+    return getSparseResult(options);
   }
 
-  return getSparseResult({
-    dataP,
-    q,
-    payload,
-    model,
-  });
+  const { dataP, model, q } = options;
+  return Promise.all([dataP.exec(), model.count(q)]).then(([data, count]) => ({
+    data,
+    count,
+  }));
 };
 
 module.exports = (schema, opts = {}) => {
