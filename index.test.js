@@ -37,3 +37,13 @@ test('correctlly paging result', (t) => {
       t.is(count, 100, 'docs count in db');
     });
 });
+
+test('correctlly paging result with fewer docs', (t) => {
+  const model = getModel();
+  return loadData(model, 10)
+    .then(() => model.paging())
+    .then(({ data, count }) => {
+      t.is(data.length, 10);
+      t.is(count, 10);
+    });
+});
