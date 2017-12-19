@@ -39,6 +39,17 @@ test.after.always('clean up tmp collection', () =>
     .map(collection => collection.name)
     .map(dropCollection));
 
+test('support page param', (t) => {
+  const model = getModel();
+  const payload = { page: 1 };
+  return loadData(model, 50)
+    .then(() => model.paging({}, payload))
+    .then(({ count, data }) => {
+      t.is(data.length, 20);
+      t.is(count, 50);
+    });
+});
+
 test('support json string q', (t) => {
   const model = getModel();
   return loadData(model, 10)
