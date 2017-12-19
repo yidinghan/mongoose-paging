@@ -25,7 +25,7 @@ const getSparseResult = (options) => {
 
     const { model, q } = options;
     return model.count(q).then(count => ({
-      data,
+      data: data.slice(0, -1),
       count,
     }));
   });
