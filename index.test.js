@@ -39,6 +39,16 @@ test.after.always('clean up tmp collection', () =>
     .map(collection => collection.name)
     .map(dropCollection));
 
+test('support json string q', (t) => {
+  const model = getModel();
+  return loadData(model, 10)
+    .then(() => model.paging('{"name":"ding"}'))
+    .then(({ count, data }) => {
+      t.is(data.length, 0);
+      t.is(count, 0);
+    });
+});
+
 test('query.count should be called when newLimit work', (t) => {
   const model = getModel();
   const payload = {
