@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/yidinghan/mongoose-paging.svg)](https://greenkeeper.io/)
 
-[![Travis](https://img.shields.io/travis/yidinghan/mongoose-paging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
+[![Travis](https://img.shields.io/travis/yidinghan/mongoose-paging.svg?style=flat-square)](https://travis-ci.org/yidinghan/mongoose-paging)
 [![npm](https://img.shields.io/npm/l/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
 [![npm](https://img.shields.io/npm/v/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
 [![npm](https://img.shields.io/npm/dm/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
