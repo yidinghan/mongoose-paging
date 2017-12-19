@@ -39,6 +39,24 @@ test.after.always('clean up tmp collection', () =>
     .map(collection => collection.name)
     .map(dropCollection));
 
+test('query.count should be called when skip not 0', (t) => {
+  const model = getModel();
+  const payload = {
+    sparse: true,
+    skip: 5,
+  };
+  return loadData(model, 10)
+    .then(() => model.paging({}, payload))
+    .then(({ count, data }) => {
+      t.is(data.length, 5);
+      t.is(count, 10);
+      t.true(
+        counter.call,
+        'query.count should not be call when docs less then pagesize',
+      );
+    });
+});
+
 test('paging in sparse mode, query.count should not be called', (t) => {
   const model = getModel();
   const payload = {
@@ -47,8 +65,8 @@ test('paging in sparse mode, query.count should not be called', (t) => {
   return loadData(model, 10)
     .then(() => model.paging({}, payload))
     .then(({ count, data }) => {
-      t.is(data.length, 10, 'default page size');
-      t.is(count, 10, 'docs count in db');
+      t.is(data.length, 10);
+      t.is(count, 10);
       t.false(
         counter.call,
         'query.count should not be call when docs less then pagesize',
