@@ -39,6 +39,21 @@ test.after.always('clean up tmp collection', () =>
     .map(collection => collection.name)
     .map(dropCollection));
 
+test('query.count should be called when newLimit work', (t) => {
+  const model = getModel();
+  const payload = {
+    sparse: true,
+    limit: 9,
+  };
+  return loadData(model, 10)
+    .then(() => model.paging({}, payload))
+    .then(({ count, data }) => {
+      t.is(data.length, 9);
+      t.is(count, 10);
+      t.true(counter.call);
+    });
+});
+
 test('query.count should be called when skip not 0', (t) => {
   const model = getModel();
   const payload = {
