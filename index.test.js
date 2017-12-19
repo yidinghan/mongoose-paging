@@ -61,3 +61,19 @@ test('docs without name by payload.select', (t) => {
       });
     });
 });
+
+test('docs without name by payload.sort', (t) => {
+  const model = getModel();
+  const payload = {
+    sort: '_id',
+  };
+  t.true(true);
+  return loadData(model, 10)
+    .then(() => model.paging({}, payload))
+    .then(({ data }) => {
+      data.reduce((prev, curr) => {
+        t.true(prev._id < curr._id);
+        return curr;
+      });
+    });
+});
