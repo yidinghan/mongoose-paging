@@ -50,10 +50,7 @@ test('query.count should be called when skip not 0', (t) => {
     .then(({ count, data }) => {
       t.is(data.length, 5);
       t.is(count, 10);
-      t.true(
-        counter.call,
-        'query.count should not be call when docs less then pagesize',
-      );
+      t.true(counter.call);
     });
 });
 
@@ -67,10 +64,7 @@ test('paging in sparse mode, query.count should not be called', (t) => {
     .then(({ count, data }) => {
       t.is(data.length, 10);
       t.is(count, 10);
-      t.false(
-        counter.call,
-        'query.count should not be call when docs less then pagesize',
-      );
+      t.false(counter.call);
     });
 });
 
