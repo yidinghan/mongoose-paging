@@ -1,5 +1,7 @@
 # mongoose-paging
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/yidinghan/mongoose-paging.svg)](https://greenkeeper.io/)
+
 [![Travis](https://img.shields.io/travis/yidinghan/mongoose-paging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
 [![npm](https://img.shields.io/npm/l/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
 [![npm](https://img.shields.io/npm/v/mpaging.svg?style=flat-square)](https://www.npmjs.com/package/mpaging)
