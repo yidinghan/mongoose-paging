@@ -25,9 +25,11 @@
   "devDependencies": {
     "@types/node": "^8.0.58",
     "ava": "^0.24.0",
+    "bluebird": "^3.5.1",
     "eslint": "^4.13.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "mongoose": "^4.13.7",
     "standard-version": "^4.2.0"
   },
   "dependencies": {
