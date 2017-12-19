@@ -47,3 +47,17 @@ test('correctlly paging result with fewer docs', (t) => {
       t.is(count, 10);
     });
 });
+
+test('docs without name by payload.select', (t) => {
+  const model = getModel();
+  const payload = {
+    select: '-name',
+  };
+  return loadData(model, 10)
+    .then(() => model.paging({}, payload))
+    .then(({ data }) => {
+      data.forEach((doc) => {
+        t.false(Object.keys(doc).includes('name'));
+      });
+    });
+});
