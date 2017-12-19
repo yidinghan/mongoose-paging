@@ -8,6 +8,7 @@
   },
   "scripts": {
     "release": "standard-version",
+    "cov": "nyc report --reporter=html",
     "test": "nyc ava index.test.js --serial"
   },
   "repository": {
