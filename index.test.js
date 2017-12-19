@@ -67,7 +67,6 @@ test('docs without name by payload.sort', (t) => {
   const payload = {
     sort: '_id',
   };
-  t.true(true);
   return loadData(model, 10)
     .then(() => model.paging({}, payload))
     .then(({ data }) => {
