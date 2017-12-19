@@ -8,7 +8,7 @@
   },
   "scripts": {
     "release": "standard-version",
-    "test": "ava index.test.js"
+    "test": "nyc ava index.test.js"
   },
   "repository": {
     "type": "git",
