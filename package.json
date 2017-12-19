@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "release": "standard-version",
-    "test": "npm test"
+    "test": "ava index.test.js"
   },
   "repository": {
     "type": "git",
