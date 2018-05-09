@@ -28,8 +28,8 @@
   "homepage": "https://github.com/yidinghan/mongoose-paging#readme",
   "devDependencies": {
     "@types/mongoose": "^4.7.29",
-    "@types/node": "^9.3.0",
     "ava": "^0.25.0",
+    "@types/node": "^10.0.3",
     "bluebird": "^3.5.1",
     "eslint": "^4.13.1",
     "eslint-config-airbnb-base": "^12.1.0",
