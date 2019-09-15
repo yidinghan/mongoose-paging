@@ -6,14 +6,17 @@ const ajv = new Ajv({
   coerceTypes: 'array',
 });
 
-const parseQ = q => (typeof q === 'string' ? JSON.parse(q) : q);
+const parseQ = (q) => (typeof q === 'string' ? JSON.parse(q) : q);
 const page2skip = (payload) => {
   if (_.has(payload, 'page')) {
     payload.skip = payload.limit * payload.page;
   }
 };
 const getSparseResult = (options) => {
-  const { payload: { limit }, dataP } = options;
+  const {
+    payload: { limit },
+    dataP,
+  } = options;
   const newLimit = limit + 1;
   return dataP.limit(newLimit).then((data) => {
     if (data.length < newLimit) {
@@ -24,14 +27,16 @@ const getSparseResult = (options) => {
     }
 
     const { model, q } = options;
-    return model.count(q).then(count => ({
+    return model.count(q).then((count) => ({
       data: data.slice(0, -1),
       count,
     }));
   });
 };
 const getResult = (options) => {
-  const { payload: { sparse, skip } } = options;
+  const {
+    payload: { sparse, skip },
+  } = options;
   if (sparse && !skip) {
     return getSparseResult(options);
   }
@@ -104,7 +109,7 @@ module.exports = (schema, opts = {}) => {
     const pop = payload.populate;
     if (!_.isEmpty(pop)) {
       if (Array.isArray(pop)) {
-        pop.forEach(p => dataP.populate(p));
+        pop.forEach((p) => dataP.populate(p));
       } else {
         dataP.populate(pop);
       }
