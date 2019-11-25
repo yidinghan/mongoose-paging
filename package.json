@@ -28,7 +28,7 @@
   "homepage": "https://github.com/yidinghan/mongoose-paging#readme",
   "devDependencies": {
     "@types/mongoose": "^5.5.29",
-    "@types/node": "^12.7.5",
+    "@types/node": "^12.12.14",
     "ava": "^2.3.0",
     "bluebird": "^3.5.5",
     "eslint": "^6.4.0",
